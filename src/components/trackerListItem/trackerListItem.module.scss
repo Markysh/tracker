@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10px 10px 15px;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.details {
+  display: flex;
+  align-items: center;
+}
+
+.time {
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+.playBtn {
+  margin-right: 5px;
+}
+
+.removeBtn {
+  color: red;
+}
