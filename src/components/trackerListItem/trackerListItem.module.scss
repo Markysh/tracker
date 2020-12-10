@@ -19,12 +19,16 @@
   font-weight: bold;
 }
 
-.playBtn {
+.activeBtn {
+  width: 25px;
+  height: 25px;
   margin-right: 5px;
   cursor: pointer;
 }
 
 .removeBtn {
-  color: red;
+  width: 25px;
+  height: 25px;
+  fill: red;
   cursor: pointer;
 }

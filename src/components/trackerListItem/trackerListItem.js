@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./trackerListItem.module.scss";
-import classnames from "classnames";
+import { ReactComponent as PlayTack } from "../../icons/play.svg";
+import { ReactComponent as StopTack } from "../../icons/pause.svg";
+import { ReactComponent as RemoveTrack } from "../../icons/remove.svg";
 import { playAction, stopAction, removeAction } from "../../store/actions";
 import { useDispatch } from "react-redux";
 
@@ -28,18 +30,12 @@ export const TrackerListItem = (props) => {
       <div className={styles.name}>{name}</div>
       <div className={styles.details}>
         <div className={styles.time}>{time}</div>
-        <span
-          className={classnames("material-icons", styles.playBtn)}
-          onClick={onActiveClick}
-        >
-          {active ? "pause_circle_outline" : "play_circle_outline"}
-        </span>
-        <span
-          className={classnames("material-icons", styles.removeBtn)}
-          onClick={onRemoveClick}
-        >
-          remove_circle_outline
-        </span>
+        {active ? (
+          <StopTack className={styles.activeBtn} onClick={onActiveClick} />
+        ) : (
+          <PlayTack className={styles.activeBtn} onClick={onActiveClick} />
+        )}
+        <RemoveTrack className={styles.removeBtn} onClick={onRemoveClick} />
       </div>
     </div>
   );

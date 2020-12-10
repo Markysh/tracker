@@ -21,8 +21,8 @@
 .button {
   position: absolute;
   right: 0;
-  font-size: 43px;
-  transform: rotate(-90deg);
-  color: green;
+  width: 43px;
+  height: 43px;
+  fill: green;
   cursor: pointer;
 }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./trackerCreator.module.scss";
-import classnames from "classnames";
 import { useDispatch } from "react-redux";
+import { ReactComponent as AddTrack } from "../../icons/add.svg";
 import { createItemAction } from "../../store/actions";
 
 export const TrackerCreator = () => {
@@ -12,13 +12,22 @@ export const TrackerCreator = () => {
     setName(event.target.value);
   }
 
-  function onButtonClick() {
+  function onCreateTracker() {
     dispatch(createItemAction(name));
     setName("");
   }
-  //form + submit
+
+  function onButtonClick() {
+    onCreateTracker();
+  }
+
+  function onSubmit(event) {
+    event.preventDefault();
+    onCreateTracker();
+  }
+
   return (
-    <div className={styles.container}>
+    <form className={styles.container} onSubmit={onSubmit}>
       <input
         type="text"
         value={name}
@@ -26,12 +35,7 @@ export const TrackerCreator = () => {
         className={styles.trackerField}
         onChange={onChange}
       />
-      <span
-        className={classnames("material-icons", styles.button)}
-        onClick={onButtonClick}
-      >
-        arrow_drop_down_circle
-      </span>
-    </div>
+      <AddTrack className={styles.button} onClick={onButtonClick} />
+    </form>
   );
 };

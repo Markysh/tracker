@@ -11,3 +11,8 @@ export const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(thunk))
 );
+
+store.subscribe(() => {
+  const createdTracks = store.getState().listItems;
+  localStorage.setItem("createdTracks", JSON.stringify(createdTracks));
+});
