@@ -10,8 +10,10 @@ function App() {
     <Provider store={store}>
       <div className={styles.mainContainer}>
         <div className={styles.title}>tracker</div>
-        <TrackerCreator />
-        <TrackerList />
+        <div className={styles.trackerWrapper}>
+          <TrackerCreator />
+          <TrackerList />
+        </div>
       </div>
     </Provider>
   );

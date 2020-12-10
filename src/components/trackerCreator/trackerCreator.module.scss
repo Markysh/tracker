@@ -1,8 +1,12 @@
 .container {
-  width: 40%;
+  width: 50%;
   margin-bottom: 20px;
   display: flex;
   position: relative;
+
+  @media (min-width: 360px) and (max-width: 560px) {
+    width: 90%;
+  }
 }
 
 .trackerField {
