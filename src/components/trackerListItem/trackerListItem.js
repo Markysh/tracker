@@ -1,4 +1,5 @@
 import React from "react";
+import classnames from "classnames";
 import styles from "./trackerListItem.module.scss";
 import { ReactComponent as PlayTack } from "../../icons/play.svg";
 import { ReactComponent as StopTack } from "../../icons/pause.svg";
@@ -11,6 +12,11 @@ export const TrackerListItem = (props) => {
   const name = props.name;
   const time = props.time;
   const active = props.active;
+  const nameClass = classnames(styles.name, { [styles.activeColor]: active });
+  const timeClass = classnames(styles.time, { [styles.activeColor]: active });
+  const containerClass = classnames(styles.container, {
+    [styles.activeBg]: active,
+  });
   const dispatch = useDispatch();
 
   function format(duration) {
@@ -39,10 +45,10 @@ export const TrackerListItem = (props) => {
   }
 
   return (
-    <div className={styles.container}>
-      <div className={styles.name}>{name}</div>
+    <div className={containerClass}>
+      <div className={nameClass}>{name}</div>
       <div className={styles.details}>
-        <div className={styles.time}>{format(time)}</div>
+        <div className={timeClass}>{format(time)}</div>
         {active ? (
           <StopTack className={styles.activeBtn} onClick={onActiveClick} />
         ) : (
