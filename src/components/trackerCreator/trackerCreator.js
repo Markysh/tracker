@@ -13,8 +13,13 @@ export const TrackerCreator = () => {
   }
 
   function onCreateTracker() {
-    dispatch(createItemAction(name));
-    setName("");
+    if (name) {
+      dispatch(createItemAction(name));
+      setName("");
+    } else {
+      dispatch(createItemAction("No name tracker"));
+      setName("");
+    }
   }
 
   function onButtonClick() {

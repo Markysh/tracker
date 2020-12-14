@@ -7,11 +7,10 @@ export const createItemAction = (name) => ({
   },
 });
 
-export const updateTrackerTimeAction = (id, time) => ({
+export const updateTrackerTimeAction = (id) => ({
   type: UPDATE_ITEM_TIME,
   payload: {
     id,
-    time,
   },
 });
 

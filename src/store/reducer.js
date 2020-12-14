@@ -41,7 +41,7 @@ function onUpdateItem(store, payload) {
       ? item
       : {
           ...searchedTracker,
-          time: payload.time,
+          time: searchedTracker.time + 1,
         };
   });
 }
