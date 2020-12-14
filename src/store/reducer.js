@@ -1,8 +1,8 @@
 import { v4 } from "uuid";
 import { CREATE_ITEM, UPDATE_ITEM_TIME, PLAY, STOP, REMOVE } from "./constants";
+import { getStoredTracks } from "./effects/sync";
 
-const storedTracks = JSON.parse(localStorage.getItem("createdTracks"));
-const initialState = storedTracks || [];
+const initialState = getStoredTracks() || [];
 
 export function listItemsReducer(store = initialState, { type, payload }) {
   switch (type) {
