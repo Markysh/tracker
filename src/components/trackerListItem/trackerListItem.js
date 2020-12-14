@@ -13,6 +13,19 @@ export const TrackerListItem = (props) => {
   const active = props.active;
   const dispatch = useDispatch();
 
+  function format(duration) {
+    const hours = Math.floor(duration / 3600);
+    const minutesFractional = duration - 3600 * hours;
+    const minutes = Math.floor(minutesFractional / 60);
+    const seconds = minutesFractional - minutes * 60;
+
+    return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+  }
+
+  function pad(value) {
+    return value.toString().padStart(2, "0");
+  }
+
   function onActiveClick() {
     if (active) {
       dispatch(stopAction(id));
@@ -29,7 +42,7 @@ export const TrackerListItem = (props) => {
     <div className={styles.container}>
       <div className={styles.name}>{name}</div>
       <div className={styles.details}>
-        <div className={styles.time}>{time}</div>
+        <div className={styles.time}>{format(time)}</div>
         {active ? (
           <StopTack className={styles.activeBtn} onClick={onActiveClick} />
         ) : (
